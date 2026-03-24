@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('rosters', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId("employees_id");
+            $table->foreignId('employees_id');
+            $table->string('position');
+            $table->string('status');
         });
     }
 
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rosters');
+        Schema::dropIfExists('roster');
     }
 };
