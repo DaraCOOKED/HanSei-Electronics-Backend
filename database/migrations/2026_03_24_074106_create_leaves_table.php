@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('salary', function (Blueprint $table) {
+        Schema::create('leaves', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("name");
-            $table->string("salary");
-            $table->string("total_a");
-            $table->string("total_p");
-            $table->string("total_l");
-            $table->string("total_salary");
-        
+            $table->foreignId('employees_id');
+            $table->string('reason');
+            $table->string('type_of_leaving');
+            $table->date('start_date');
+            $table->date('end_date');
+
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('salary');
+        Schema::dropIfExists('leaves');
     }
 };
