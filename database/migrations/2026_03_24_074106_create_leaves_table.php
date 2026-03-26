@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('leaves', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("name");
-            $table->string("permission");
-            $table->string("role_name");
-            $table->string("session_time");
+            $table->foreignId('employees_id');
+            $table->string('reason');
+            $table->string('type_of_leaving');
+            $table->date('start_date');
+            $table->date('end_date');
+
         });
     }
 
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('leaves');
     }
 };
