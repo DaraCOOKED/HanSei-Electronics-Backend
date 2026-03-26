@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
+<<<<<<< HEAD
     Hello World
+=======
+    shdsdhsgdhsgdhsg
+>>>>>>> d03be6b47197aebca7da11fe0477b5e51e51cf3c
 </body>
 </html>
