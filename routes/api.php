@@ -20,11 +20,8 @@ use App\Http\Controllers\RoleController;
 
 
 
-    //    Employeee
-    Route::get('/employees', [EmployeeController::class, 'index']);
+    
 
-
-    Route::get('/attendances', [AttendanceController::class,'index']);
 
 
 
