@@ -64,3 +64,31 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+# Check Laravel is working
+php artisan --version
+```
+
+You should see something like `Laravel Framework 10.x.x` — tell me what version you get!
+
+---
+
+## 📁 Step 2: Understand Your Folder Structure
+
+Open your Laravel project, you will see these folders. The important ones for us:
+```
+your-laravel-project/
+│
+├── app/
+│   ├── Http/
+│   │   └── Controllers/     👈 YOUR CONTROLLERS GO HERE
+│   └── Models/              👈 YOUR MODELS GO HERE
+│
+├── routes/
+│   └── api.php              👈 YOUR API ROUTES GO HERE
+│
+├── database/
+│   └── migrations/          👈 YOUR DATABASE TABLES GO HERE
+│
+└── .env                     👈 YOUR DATABASE CONFIG HERE
