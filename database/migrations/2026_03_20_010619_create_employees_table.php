@@ -24,8 +24,7 @@ return new class extends Migration
             $table->string("experience");
             $table->date("shift");
             $table->string("status");
-            $table->string("hired_date");
-            $table->string("salary");
+            $table->date("hired_date");
         });
     }
 
