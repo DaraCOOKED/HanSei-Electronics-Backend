@@ -16,7 +16,7 @@ return new class extends Migration
             $table->time('check_in');
             $table->time('check_out');
         });
-    }
+    }   
 
     public function down(): void
     {

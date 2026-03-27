@@ -10,7 +10,7 @@ class EmployeeController extends Controller
     
     public function index() 
     {
-        return 'Dead of line.';
+        return Employee::all();
     }
 }
 
