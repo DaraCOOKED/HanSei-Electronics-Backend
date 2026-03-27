@@ -11,9 +11,11 @@ class Department extends Model
     
     protected $primarykey = 'id';
 
-    protected $fillable = [
+    protected $fillable = 
+    [
         'name',
     ];
+    
     public function attendances()
     {
         return $this->hasMany(Attendance::class);

@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Attendence;
 
 class AttendenceController extends Controller
-{
-   public function index()
-    { 
-       return 'Darya bek hx b b ';
-    }
+{ 
+
+  public function index()
+  { 
+    return Attendence::all();
+  }
 }
