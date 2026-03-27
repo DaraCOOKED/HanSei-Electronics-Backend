@@ -15,20 +15,21 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        // Check email & password
         if (!Auth::attempt($request->only('email', 'password'))) {
             return response()->json([
                 'message' => 'Wrong email or password!'
             ], 401);
         }
 
-        // Get logged in user
         $user = Auth::user();
 
-        // Create token
+        // ✅ Check BEFORE using $user
+        if (!$user) {
+            return response()->json(['message' => 'Unauthenticated.'], 401);
+        }
+
         $token = $user->createToken('hr-token')->plainTextToken;
 
-        // Send back token + user
         return response()->json([
             'token' => $token,
             'user'  => $user,
@@ -50,25 +51,24 @@ class AuthController extends Controller
     }
 
     public function register(Request $request)
-{
-    $request->validate([
-        'name'     => 'required|string|max:255',
-        'email'    => 'required|email|unique:users',
-        'password' => 'required|min:8|confirmed',
-    ]);
+    {
+        $request->validate([
+            'name'     => 'required|string|max:255',
+            'email'    => 'required|email|unique:users',
+            'password' => 'required|min:8|confirmed',
+        ]);
 
-    $user = User::create([
-        'name'     => $request->name,
-        'email'    => $request->email,
-        'password' => bcrypt($request->password),
-    ]);
+        $user = User::create([
+            'name'     => $request->name,
+            'email'    => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
 
-    $token = $user->createToken('auth_token')->plainTextToken;
+        $token = $user->createToken('hr-token')->plainTextToken;
 
-    return response()->json([
-        'token' => $token,
-        'user'  => $user
-    ]);
+        return response()->json([
+            'token' => $token,
+            'user'  => $user,
+        ], 201);
+    }
 }
-}
-

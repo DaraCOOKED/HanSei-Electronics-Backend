@@ -9,15 +9,13 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\RoleController;
 
 // Auth / Resiger / login
-    Route::post('/login',    [AuthController::class, 'login']);
-    Route::post('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login',    [AuthController::class, 'login']);
 
-    Route::middleware('auth:sanctum')->group(function () {
-        Route::post('/logout', [AuthController::class, 'logout']);
-        Route::get('/me',      [AuthController::class, 'me']);
-    });
-
-
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/me',      [AuthController::class, 'me']);
+});
 
 
     
@@ -26,7 +24,7 @@ use App\Http\Controllers\RoleController;
 
 
 
-Route::get('/user', function (Request $request) {
+Route::get('/user', function ( $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
