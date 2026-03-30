@@ -23,9 +23,14 @@ return new class extends Migration
             $table->string("shirt");
             $table->string("status");
             $table->string("hired_date");
+<<<<<<< HEAD
             $table->float("salary");
 
         });
+=======
+            $table->string("salary");
+        }   );
+>>>>>>> main
     }
 
     /**
