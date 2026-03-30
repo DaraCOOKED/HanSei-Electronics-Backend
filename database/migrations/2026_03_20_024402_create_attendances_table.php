@@ -11,11 +11,12 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->foreignId('employee_id');
+            $table->unsignedBigInteger('employee_id');
+            $table->foreign('employee_id')->references('id')->on('employees');
             $table->time('check_in');
             $table->time('check_out');
         });
-    }
+    }   
 
     public function down(): void
     {

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("date of born");
-            $table->date("sex");
+            $table->date("date of born");
+            $table->string("sex");
             $table->string("phone");
             $table->string("email");
             $table->string("place of born");
@@ -23,8 +23,14 @@ return new class extends Migration
             $table->string("shirt");
             $table->string("status");
             $table->string("hired_date");
+<<<<<<< HEAD
+            $table->float("salary");
+
+        });
+=======
             $table->string("salary");
         }   );
+>>>>>>> main
     }
 
     /**
